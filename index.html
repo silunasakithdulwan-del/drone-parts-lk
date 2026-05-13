@@ -1,32 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #0f172a;
-      color: white;
-    }
-    .box {
-      margin-top: 100px;
-    }
-    button {
-      padding: 10px 20px;
-      background: #22c55e;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drone Shop</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #0b1220;
+  color: white;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(17, 24, 39, 0.9);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+nav h1 {
+  font-size: 20px;
+  color: #38bdf8;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h2 {
+  font-size: 36px;
+}
+
+.hero p {
+  color: #94a3b8;
+}
+
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: linear-gradient(145deg, #111827, #0f172a);
+  border: 1px solid #1f2937;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.price {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+  font-size: 14px;
+}
+</style>
 </head>
 
 <body>
-  <div class="box">
-    <h1>Welcome to My Website 🚀</h1>
-    <p>This is my first website deployed on Vercel</p>
-    <button onclick="alert('Hello!')">Click Me</button>
+
+<nav>
+  <h1>🚁 Drone Shop</h1>
+  <div>Home | Products</div>
+</nav>
+
+<div class="hero">
+  <h2>High Quality Drone Parts</h2>
+  <p>Build. Fly. Upgrade your drone system with premium parts.</p>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321" />
+    <div class="card-content">
+      <h3>Brushless Motor</h3>
+      <p class="price">$12</p>
+      <button onclick="order('Brushless Motor')">Order via WhatsApp</button>
+    </div>
   </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1508614979240-8a3f9b2b2c44" />
+    <div class="card-content">
+      <h3>Flight Controller</h3>
+      <p class="price">$25</p>
+      <button onclick="order('Flight Controller')">Order via WhatsApp</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1527979809431-9b9b9b9b9b9b" />
+    <div class="card-content">
+      <h3>Propeller Set</h3>
+      <p class="price">$5</p>
+      <button onclick="order('Propeller Set')">Order via WhatsApp</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Drone Shop | Built with ❤️
+</footer>
+
+<script>
+function order(product) {
+  let phone = "94771234567"; // 👉 ඔයාගේ number එක දාන්න
+  let msg = "Hi, I want to order: " + product;
+  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
+  window.open(url, "_blank");
+}
+</script>
+
 </body>
 </html>
